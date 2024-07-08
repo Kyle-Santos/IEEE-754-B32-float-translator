@@ -38,6 +38,10 @@ input, select, textarea, button {
     border: 1px solid #ddd;
 }
 
+input, textarea {
+    width: 95%;
+}
+
 button {
     background-color: #007BFF;
     color: white;
