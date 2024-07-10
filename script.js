@@ -6,7 +6,7 @@ $('#translateBtn').on('click', function() {
 
     if (hexInput && isValidHex(hexInput)) {
         output = ieee754ToDecimal(hexInput.toUpperCase(), 'hex', format);
-    } else if (binaryInput) {
+    } else if (binaryInput && isValidBinary(binaryInput)) {
         output = ieee754ToDecimal(binaryInput, 'binary', format);
     } else {
         output = 'Please enter a valid input.';
@@ -27,6 +27,11 @@ $('#copyBtn').on('click', function() {
 function isValidHex(hex) {
     const hexRegex = /^[0-9A-Fa-f]{8}$/;
     return hexRegex.test(hex);
+}
+
+function isValidBinary(binary) {
+    const binaryRegex = /^[01]{32}$/;
+    return binaryRegex.test(binary);
 }
 
 function ieee754ToDecimal(input, type, format) {
