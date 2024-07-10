@@ -37,9 +37,6 @@ function isValidBinary(binary) {
 function ieee754ToDecimal(input, type, format) {
     let binary;
     if (type === 'hex') {
-        if (input === 'FFFFFFFF') {
-            return "NaN"
-        }
         binary = parseInt(input, 16).toString(2).padStart(32, '0');
     } else if (type === 'binary') {
         binary = input.padStart(32, '0');
@@ -56,7 +53,7 @@ function ieee754ToDecimal(input, type, format) {
         if (significand === '00000000000000000000000') {
             return sign === 0 ? '+0' : '-0';
         } 
-        else {
+        else  {
             let denormalized = sign === 1 ? "-0." + significand : "+0." + significand;
 
             return trimTrailingZeros(denormalized) + "x2ˆ-126"; 
