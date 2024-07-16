@@ -8,7 +8,7 @@ The program makes use of three main technologies: HTML for structure, CSS for st
 
 With just one click, users can effortlessly input binary or hexadecimal values, choose their preferred output format, and receive precise results thanks to the user-friendly interface. The program also makes it easy for users to use the translated numbers in their work by offering options like copying results to the clipboard.
 
-## TECHINCALITIES
+## TECHNICALITIES
 
 Important technologies and techniques are used in our project to guarantee effective IEEE-754 Binary-32 floating-point conversion. The essential functionality for translating binary and hexadecimal inputs to decimal, controlling user interactions, and dynamically updating the DOM are all handled by JavaScript. Regular expressions are used in input validation to guarantee that binary and hexadecimal inputs are formatted # KEY COMPONENTS
 
