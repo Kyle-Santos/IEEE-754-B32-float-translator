@@ -10,7 +10,7 @@ With just one click, users can effortlessly input binary or hexadecimal values, 
 
 ## TECHNICALITIES
 
-Important technologies and techniques are used in our project to guarantee effective IEEE-754 Binary-32 floating-point conversion. The essential functionality for translating binary and hexadecimal inputs to decimal, controlling user interactions, and dynamically updating the DOM are all handled by JavaScript. Regular expressions are used in input validation to guarantee that binary and hexadecimal inputs are formatted # KEY COMPONENTS
+Important technologies and techniques are used in our project to guarantee effective IEEE-754 Binary-32 floating-point conversion. The essential functionality for translating binary and hexadecimal inputs to decimal, controlling user interactions, and dynamically updating the DOM are all handled by JavaScript. Regular expressions are used in input validation to guarantee that binary and hexadecimal inputs are formatted.
 
 ### KEY COMPONENTS
 - **Hexadecimal and Binary Input**: The translator allows users to input either 8-digit hexadecimal values or 32-bit binary strings, providing flexibility for different use cases.
