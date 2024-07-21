@@ -1,5 +1,4 @@
 /** Event Listener for the Translate Button */
-
 $('#translateBtn').on('click', function() {
     const hexInput = $('#hexInput').val().trim();
     const binaryInput = $('#binaryInput').val().trim();
@@ -71,9 +70,26 @@ function ieee754ToDecimal(input, type, format) {
         } 
         // Denormalized Number
         else  {
-            let denormalized = sign === 1 ? "-0." + significand : "+0." + significand;
+            let signPrefix = sign === 1 ? "-" : "+";
+            let binarySignificand = "0." + significand;
 
-            return trimTrailingZeros(denormalized) + "x2ˆ-126"; 
+            // Convert binary significand to decimal
+            let decimal = new BigNumber(binarySignificand, 2);
+
+            // Multiply by 2^-126
+            let multiplier = new Decimal(2).pow(-126);
+            let decimalValue = decimal.multipliedBy(multiplier);
+
+            // Convert to string and trim trailing zeros
+            let result = signPrefix + trimTrailingZeros(decimalValue.toString());
+
+            // Returns result in the desired format
+            if (format === 'fixed') {
+                var bigNum = new BigNumber(result);
+                return bigNum.toFixed(); // Convert to fixed-point notation
+            } else {
+                return result; // Default to String Representation
+            }
         } 
     }
 
@@ -100,9 +116,11 @@ function ieee754ToDecimal(input, type, format) {
 
     decimal = sign === 1 ? -decimal : decimal; // Apply the Sign
 
+    console.log(decimal);
     // Returns result in the desired format
     if (format === 'fixed') {
-        return decimal.toFixed(100); // Fixed Point Notation; Adjust precision as needed
+        var bigNum = new BigNumber(decimal);
+        return bigNum.toFixed(); // Convert to fixed-point notation
     } else {
         return decimal.toString(); // Default to String Representation
     }
