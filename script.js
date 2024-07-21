@@ -85,8 +85,9 @@ function ieee754ToDecimal(input, type, format) {
 
             // Returns result in the desired format
             if (format === 'fixed') {
-                var bigNum = new BigNumber(result);
-                return bigNum.toFixed(); // Convert to fixed-point notation
+                return parseFloat(result).toFixed(100);
+                // var bigNum = new BigNumber(result);
+                // return bigNum.toFixed(); // Convert to fixed-point notation
             } else {
                 return result; // Default to String Representation
             }
@@ -119,8 +120,13 @@ function ieee754ToDecimal(input, type, format) {
     console.log(decimal);
     // Returns result in the desired format
     if (format === 'fixed') {
-        var bigNum = new BigNumber(decimal);
-        return bigNum.toFixed(); // Convert to fixed-point notation
+        if (decimal > 1) {
+            var bigNum = new BigNumber(decimal);
+            return bigNum.toFixed(); // Convert to fixed-point notation
+        }
+        else {
+            return decimal.toFixed(100);
+        }
     } else {
         return decimal.toString(); // Default to String Representation
     }
